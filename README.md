@@ -5,7 +5,7 @@ GTA Mechanics is a mobile mechanic business. The Mechanics offer services in the
 
 # Link:
 
-Heroku –
+Heroku – https://gta-mechanics.herokuapp.com/
 
 
 ## Planning/Logic and resources:
