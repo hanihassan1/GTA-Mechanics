@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'mechanic_user.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mechanicdb1',
-        'USER':'main',
-        'PASSWORD': 'root1234',
+        'NAME': '*****',
+        'USER':'*****',
+        'PASSWORD': '****',
         'HOST': 'mechanicdb1.cccssd5sqciz.ca-central-1.rds.amazonaws.com',
         'PORT': ''
         
