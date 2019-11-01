@@ -1,1 +1,1 @@
-web: gunicorn mechanic_assign.wsgi:application
+web: gunicorn mechanic_user.wsgi:application
