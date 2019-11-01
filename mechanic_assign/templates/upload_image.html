@@ -1,0 +1,124 @@
+{% extends 'emp_base.html' %} {% load static %} {% block head %}
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static '/css/styles.css'  %}" rel="stylesheet" type="text/css" media="all" /> {% endblock %} {% block menu %}
+
+<title>GTA Mobile Mechanics - Employee Dashboard</title>
+<!--side menu end-->
+<div class="main-panel" id="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+            <div class="navbar-wrapper">
+                <div class="navbar-toggle">
+                    <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+                </div>
+                <a class="navbar-brand" href="#pablo">Dashboard</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                <p class="nav-item">
+                    <a class="nav-link" href="#pablo">
+                  <i class="far fa-user-circle" style="font-size:30px;"></i>
+                 
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+
+            </div>
+            <button class="open-button"><a href="{% url 'index' %}">Logout</button></a>
+        </div>
+    </nav>
+
+    <!--side menu Start-->
+    <div class="sidebar" data-color="orange">
+
+        <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+        <div class="logo">
+
+            <a href="#" class="simple-text logo-mini">
+          GTA
+        </a>
+            <a href="#" class="simple-text logo-normal">
+          Mobile Mechanics
+        </a>
+        </div>
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+            <ul class="nav">
+                <li class="active ">
+                    <a href="{% url 'dashboard' %}">
+              <i class="fas fa-cube"></i>
+              <p>Dashboard</p>
+            </a>
+                </li>
+
+
+                <li>
+
+                </li>
+                <li>
+                    <a href="{% url 'user_employee' %}">
+               <i class="far fa-user-circle"></i>
+              <p>User Profile</p>
+            </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    {% endblock %} {% block content %}
+
+    <div class="panel-header panel-header-sm">
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"> Work Orders</h4>
+                    </div>
+                    <div class="card-body orders-edit">
+                        <div class="table-responsive">
+
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <p>
+                                    Please specify a file, or a set of files:<br>
+                                    <label for="before_img"> Before Image  </label>
+                                    <input type="file" name="before_img" size="40">
+                                    
+                                    <label for="after_img"> After Image  </label>
+                                    <input type="file" name="after_img" size="40">
+                                </p>
+                                <div>
+                                    <input type="submit" value="Send">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.getElementById('buttonid').addEventListener('click', openDialog);
+
+                function openDialog() {
+                    document.getElementById('fileid').click();
+                }
+            </script>
+
+            {% endblock %} {% block footer %} {% endblock %}

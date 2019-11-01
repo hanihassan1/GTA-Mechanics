@@ -1,0 +1,131 @@
+{% extends 'emp_base.html' %} {% load static %} {% block head %}
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static '/css/styles.css'  %}" rel="stylesheet" type="text/css" media="all" /> {% endblock %}
+
+
+<!-- Style-CSS -->
+
+
+{% block content%}
+
+<!--user information-->
+
+<div class="main-panel" id="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+            <div class="navbar-wrapper">
+                <div class="navbar-toggle">
+                    <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+                </div>
+               
+
+                <!--book appointment-->
+            
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" >
+                 
+                  <p>
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+                    </li>
+                </ul>
+            </div>
+              <button class="open-button"><a href="{% url 'index' %}">Home</button></a><br>
+            <button class="open-button"><a href="{% url 'services' %}">Services</button></a><br>
+            <button class="open-button3"><a href="{% url 'index' %}">Logout</button></a><br>
+        </div>
+    </nav>
+
+    <!--side panel -->
+
+    <div class="sidebar" data-color="yellow">
+
+
+
+        <div class="logo">
+
+            <a href="#" class="simple-text logo-mini">
+          GTA
+        </a>
+            <a href="#" class="simple-text logo-normal">
+          Mobile Mechanics
+        </a>
+        </div>
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="col-lg-10 bottom-grid fadeInLeft animated animated">
+
+                       
+
+
+
+                        <!--book model-->
+
+                    </div>
+                </div>
+
+
+            </div>
+
+         
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="panel-header panel-header-sm"></div>
+
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Booking Detail</h4>
+                        <p>Client name : <b>{{booking.client.username}}</b></p>
+                        <p>Date : <b>{{booking.date}}</b></p>
+                        <p>Time : <b>{{booking.time}}</b></p>
+                        <hr>
+
+                        <div class="row " >
+                            <div class="col-lg-6 ">
+                                {% if image_list|length > 0 %} {% for image in image_list %}
+                                <h3>Before image</h3><img src="{{image.before_image.url}}" style="border-radius: 30px; height:300px; width:300px;">
+                            </div>
+                            <div class="col-lg-6 ">
+                                <h3>After image</h3><img  src="{{image.after_image.url}}" style="border-radius: 30px;height:300px; width:300px;">
+                                {% endfor %} 
+                                {%else%}
+                            </div>
+                            <h6><i>No images uploaded.<br> Check back soon.</i></h6>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+         
+
+
+            {% endblock %} {% block footer %} {% endblock %}

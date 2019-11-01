@@ -1,0 +1,299 @@
+{% extends 'emp_base.html' %} {% load static %} {% block head %}
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static '/css/styles.css'  %}" rel="stylesheet" type="text/css" media="all" /> {% endblock %}
+
+
+<!-- Style-CSS -->
+
+{% block content%}
+<!--user information-->
+
+<div class="main-panel" id="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+            <div class= "row">
+            <div class="navbar-wrapper">
+                <div class="navbar-toggle">
+                    <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+                </div>
+                </div>
+               
+                <a class="navbar-brand">Customer Profile</a>
+
+         
+            
+
+
+
+       
+         
+
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">
+                  
+                  <p>
+                    <span class="d-lg-none d-md-block">Home</span>
+                  </p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link"  href="{% url 'services' %}">
+
+                  <p>
+                    <span class="d-lg-none d-md-block">Services</span>
+                  </p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">
+                 
+                  <p>
+                    <span class="d-lg-none d-md-block">Logout</span>
+                  </p>
+                </a>
+              </li>
+
+                </ul>
+            </div>
+             <button class="open-button collapse navbar-collapse"><a href="{% url 'index' %}">Home</button></a>
+            <button class="open-button collapse navbar-collapse"><a href="{% url 'services' %}">Services</button></a>
+            <button class="open-button3 collapse navbar-collapse"><a href="{% url 'logout' %}">Logout</button></a>
+            
+        </div>
+        
+    </nav>
+   
+
+    <!--side panel -->
+
+    <div class="sidebar" data-color="yellow">
+
+
+
+        <div class="logo">
+
+            <a href="#" class="simple-text logo-mini">
+          GTA
+        </a>
+            <a href="#" class="simple-text logo-normal">
+          Mobile Mechanics
+        </a>
+        </div>
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="col-lg-10 bottom-grid fadeInLeft animated animated">
+
+                        <p>Name: {{user.username}}</p>
+
+
+                        <p>Contact #: {{user.phone_number}}</p>
+
+
+
+
+
+                        <!--book model-->
+
+                    </div>
+                </div>
+
+
+            </div>
+                   <!--book appointment-->
+           
+                <button class="open-button" onclick="openForm2()">Book an Appointment</button>
+            
+                            <div class="form-popup" id="myForm2">
+                                <form method="POST" class="form-container">
+                                    {% csrf_token %}
+                                    <h3 class="form-label">Vehicle Information</h3>
+                        <input type="hidden" value="booking" name="form-type" />
+                        
+
+                        <label for="time" class="form-label"><b>Time</b></label>
+                        <input type="text" placeholder="Enter Time" name="time" required>
+
+                        <label for="date" class="form-label"><b>Date</b></label>
+                        <input type="date" placeholder="Enter Date" name="date" required>
+
+                        <label for="address" class="form-label"><b>Address</b></label>
+                        <input type="text" placeholder="Enter Address" name="address" required>
+
+
+
+
+                        <label for="services" id="services" class="form-label"><b>Select your service:</b></label>
+                        <select name="services">
+                        		{% for item in services %}
+                        		<option value="{{item.id}}" required>{{item.name_of_service}}</option>
+                        		{% endfor %}
+                                	</select>
+                     
+
+
+
+                        <button type="submit" class="btn cancel">Submit</button>
+                    </form>
+                    
+                        <!--Add Vehicle-->
+                </div>
+                       <button class="open-button" onclick="openForm()">Add Vehicle</button>
+
+                <div class="form-popup" id="myForm">
+                    <form method="POST" class="form-container">
+                        {% csrf_token %}
+                        <h3 class="form-label">Vehicle Information</h3>
+                        <input type="hidden" value="vehicle_add" name="form-type" />
+                        <label for="make" class="form-label"><b>Make</b></label>
+                        <input type="text" placeholder="Enter Make" name="make" required>
+
+                        <label for="model" class="form-label"><b>Model</b></label>
+                        <input type="text" placeholder="Enter Model" name="model" required>
+
+                        <label for="year" class="form-label"><b>Year</b></label>
+                        <input type="text" placeholder="Enter Year" name="year" required>
+
+
+
+
+                        <button type="submit" class="btn cancel">Save</button>
+                    </form>
+                </div>
+
+            <ul class="nav">
+                <li class="active ">
+                    <a href="{% url 'user_profile' %}">
+              <i class="fas fa-cube"></i>
+              <p>Dashboard</p>
+            </a>
+                </li>
+
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="panel-header panel-header-sm"></div>
+
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Current Booking </h4>
+
+                    </div>
+                    <div class="card-body orders-edit">
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+<th></th>
+                                    <th>
+                                        Status
+                                    </th>
+                                  
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Time
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    <th>
+                                        Service
+                                    </th>
+                                   
+
+                                </thead>
+                                <tbody>
+                                    {% for item in booking %}
+                                    <tr>
+                                         
+                                        <td><a href="/booking_view/{{item.id}}"><i class="far fa-eye"></i> </a></td>
+                                       
+                                        {% if item.is_completed == False %}
+                                        <td>In Progress</td>
+                                        {% else %}
+                                        <td>Completed</td>
+                                        {% endif %}
+
+                                        <td>
+                                            {{item.date}}
+                                        </td>
+
+
+                                        <td>
+                                            {{item.time}}
+                                        </td>
+                                        <td>
+                                            {{item.address}}
+                                        </td>
+                                        <td>
+                                            {{ item.services.name_of_service}}
+                                        </td>
+                                       
+
+                                    {% endfor %}
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                }
+
+                function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                }
+
+                function openForm2() {
+                    document.getElementById("myForm2").style.display = "block";
+                }
+
+                function closeForm2() {
+                    document.getElementById("myForm2").style.display = "none";
+                }
+            </script>
+
+
+
+
+
+
+            {% endblock %} {% block footer %} {% endblock %}

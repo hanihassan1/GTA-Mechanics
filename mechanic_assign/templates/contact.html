@@ -1,0 +1,341 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+
+<script type="application/x-javascript">
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+	function hideURLbar() { window.scrollTo(0, 1); }
+</script>
+<!--// Meta tag Keywords -->
+
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static '/css/styles.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Style-CSS -->
+<!-- banner -->
+{% endblock %} {% block heading%}
+
+	<div class="banner-3 wthree">
+		
+		<div class="container">
+			
+			<div class="banner_top">
+				
+				<div class="logo wow fadeInLeft animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+				<h1><a href="{% url 'index' %}"><span>GTA</span> Mobile Mechanics</a></h1>
+				</div>
+				
+				<!----navigation-->
+				
+				<div class="banner_top_right wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+					<nav class="navbar navbar-default">
+			
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+{% endblock %} {% block menu %}
+<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1" >
+	<ul class="nav navbar-nav contact-nav cl-effect-14" >
+		<li><a href="{% url 'index' %}" >Home</a></li>
+		<li><a href="{% url 'services' %}">Services</a></li>
+		<li><a href="{% url 'contact' %}"  class="active">Contact Us</a></li>
+	{% if user.is_authenticated %}
+		<li><a href="{% url 'logout' %}">Logout</a></li>
+		{% if user.is_customer %}
+		<li><a href="{% url 'user_profile' %}">Profile</a></li>
+		{% else %}
+		<li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+		{%endif%}
+		{% else %}
+		<li><a href="{% url 'signup_login' %}">Register/Log In</a></li>
+		{%endif%}
+		
+		
+		
+	</ul>
+</div>
+
+{% endblock %} {% block content %}
+</div>
+<div class="clearfix"> </div>
+</div>
+<!-- banner -->
+<!--Slider-->
+
+<div class="callbacks_container">
+	<ul class="rslides" id="slider3">
+		<li>
+
+			<div class="slider-info">
+				<h3>First time customers get<span> 20% OFF.</span> </h3>
+			</div>
+		</li>
+		<li>
+			<div class="slider-info">
+				<h3>Register and recieve <span> 10% OFF!</span> </h3>
+			</div>
+		</li>
+	
+
+	</ul>
+
+	<div class="clearfix"></div>
+</div>
+<!--//Slider-->
+</div>
+<div class="thim-click-to-bottom">
+	<a href="#contact" class="scroll">
+					<i class="fa fa-long-arrow-down text-center" aria-hidden="true"> <br>Book</i>
+				</a>
+</div>
+</div>
+<!-- //banner -->
+
+<!-- Main -->
+
+<!-- Booking Form & map-->
+	<div class="con-agile">
+		
+		<br>
+			<h2 id="contact">Contact Us</h2>
+				<div class="container">
+			<div class="contact-form col-lg-12">
+				<h4>Book Now</h4>
+				<form action="#" method="post">
+					 {% csrf_token %}
+					  <!--{{ form.as_p }}-->
+					<p>
+				<label for="customer_fname">First Name:</label>
+<input type="text" id="customer_fname" name="customer_fname" required data-validation-required-message="You need to insert your first name please" />
+
+			</p>
+			<br>
+			<p>
+				<label for="customer_lname">Last Name:</label>
+<input type="text" id="customer_lname" name="customer_lname" required data-validation-required-message="You need to insert your last name please">
+
+			</p>
+<br>
+			<p>
+				<label for="phone_number">Phone: <br></label>
+<input type="tel" name="phone_number" id="phone_number" required data-validation-required-message="Enter Phone Number">
+
+			</p>
+			<br>
+			<br>
+
+			<p>
+				<label for="email">Email: <br></label>
+<input type="email" name="email_address" id="email" required data-validation-required-message="Enter email">
+
+			</p>
+			<br>
+
+		
+
+<br>
+			<p>
+				<label for="make">Make:</label>
+<input type="text" name="make" id="make" required data-validation-required-message="Enter make ">
+
+			</p>
+<br>
+			<p>
+				<label for="model">Model:</label>
+<input type="text" name="model" id= "model" required data-validation-required-message="Enter model">
+
+			</p>
+<br>
+	
+			<p>
+				<label for="year">Year:</label> 
+<input type="text" name="year" id="year" required data-validation-required-message="Enter year">
+
+			</p>
+<br>
+
+<p>
+				<label for="service_check">Check for Service: </label>
+<input type="checkbox" name="is_service" id="service_check" onclick="myFunction()"  data-validation-required-message="Enter year" value="service">
+
+			</p>
+<br>
+<p>
+	<span id="service_field" style="display:none">Select your service: 
+	<select name="services">
+		{% for item in services %}
+		<option value="{{item.id}}">{{item.name_of_service}}</option>
+		{% endfor %}
+	</select>
+
+</span>
+			</p>
+<br>
+
+<p>
+				<label for="is_inspection">Check for Inspection: </label>
+<input type="checkbox" name="is_inspection"  data-validation-required-message="Enter year" value="Inspection">
+
+			</p>
+<br>
+
+
+			<p>
+				<label for="date">Booking Date:<br></label>
+<input type="date" name="date" id="date" class="form-control mb-30" placeholder="DD/MM/YY" required data-validation-required-message="Enter date">
+
+			</p>
+<br>
+
+			<p>
+				<label>Booking Time:
+<input type="text" name="time" id="time" required data-validation-required-message="Enter time">
+</label>
+			</p>
+<br>
+
+
+			<p>
+				<label for="location">Location of Vehicle:</label>
+<textarea name="location" maxlength="500" required data-validation-required-message="Enter address of vehicle"></textarea>
+
+			</p>
+
+			<p><button>Submit Booking</button></p>
+			<br> <a href="/signup_login">Register/Log In</a>
+
+		</form>
+
+	</div>
+</div>
+
+			</div>
+		</div>
+		</div>
+		
+		<div class="container con-agile">
+			<h2>Areas we Service</h2>
+				<div class="contact-map">
+			<iframe src="https://www.google.com/maps/d/embed?mid=1Wa-6HirfcFw0ojcKl6Txt575N3s" width="640" height="480"></iframe>
+		</div>
+		</div>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<!--</div>-->
+
+
+<!-- //booking form -->
+<!-- //Main -->
+
+<!-- //Main -->
+{% block footer %}
+
+
+<!-- Footer -->
+<div class="footer w3ls">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid fg1">
+					<h4><a href="index.html">GTA Mobile Mechanics</a></h4>
+					<p>We service anywhere in the GTA</p>
+					<a href="/contact">Book Now</a>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>2 Bloor st.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>416-555-5555</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p><a href="mailto:info@example.com">gtamobilemechanics@gmail.com</a></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Keep In Touch With Us</h3>
+					<div class="right-w3l">
+						<ul class="top-links">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="right-w3-2">
+						<ul class="text-w3">
+							<li><a target="_blank" href="https://www.facebook.com/">Facebook</a></li>
+							<li><a target="_blank" href="https://twitter.com/">Twitter</a></li>
+							<li><a <a target="_blank" href="https://google.com/">Google</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="copyrights">
+				<p style="font-size:9px;">&copy; 2019 GTA Mobile Mechanics. All Rights Reserved | Edited by HaniH. Design by W3layouts </p>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- Footer -->
+<script type="text/javascript">
+    $('#time').timepicker({
+        showInputs: false
+    });
+    $(document).ready(function() {
+    });
+    
+    
+    
+function myFunction() {
+  var checkBox = document.getElementById("service_check");
+  var text = document.getElementById("service_field");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+
+// scroll up 
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    }
+    else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+</script>
+{% endblock %} {% endblock %}

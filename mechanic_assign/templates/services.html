@@ -1,0 +1,593 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+
+<script type="application/x-javascript">
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+	function hideURLbar() { window.scrollTo(0, 1); }
+</script>
+<!--// Meta tag Keywords -->
+
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static '/css/styles.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Style-CSS -->
+<!-- banner -->
+{% endblock %} {% block heading%}
+
+	<div class="banner-44 wthree">
+		
+		<div class="container">
+			
+			<div class="banner_top">
+				
+				<div class="logo wow fadeInLeft animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+				<h1><a href="{% url 'index' %}"><span>GTA</span> Mobile Mechanics</a></h1>
+				</div>
+				
+				<!----navigation-->
+				
+				<div class="banner_top_right wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+					<nav class="navbar navbar-default">
+			
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+{% endblock %} {% block menu %}
+<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+	<ul class="nav navbar-nav cl-effect-14">
+		<li><a href="{% url 'index' %}" >Home</a></li>
+		<li><a href="{% url 'services' %}" class="active">Services</a></li>
+		<li><a href="{% url 'contact' %}">Contact Us</a></li>
+		{% if user.is_authenticated %}
+		<li><a href="{% url 'logout' %}">Logout</a></li>
+		{% if user.is_customer %}
+		<li><a href="{% url 'user_profile' %}">Profile</a></li>
+		{% else %}
+		<li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+		{%endif%}
+		{% else %}
+		<li><a href="{% url 'signup_login' %}">Register/Log In</a></li>
+		{%endif%}
+		
+		
+	</ul>
+</div>
+<!-- /.navbar-collapse -->
+
+{% endblock %} {% block content %}
+</div>
+<div class="clearfix"> </div>
+</div>
+<!-- banner -->
+<!--Slider-->
+
+<div class="callbacks_container">
+	<ul class="rslides" id="slider3">
+		<li>
+
+			<div class="slider-info">
+				<h3>Fast cars are my <span>only vice.</span> </h3>
+			</div>
+		</li>
+		<li>
+			<div class="slider-info">
+				<h3>Cars bring me sheer <span>joy.</span> </h3>
+			</div>
+		</li>
+		<li>
+
+			<div class="slider-info">
+				<h3>Fast cars are my <span>only vice.</span> </h3>
+			</div>
+		</li>
+
+
+	</ul>
+
+	<div class="clearfix"></div>
+</div>
+<!--//Slider-->
+</div>
+<div class="thim-click-to-bottom">
+	<a href="#carservice" class="scroll">
+						<i class="fa fa-long-arrow-down text-center" aria-hidden="true"> <br>Services</i>
+				</a>
+</div>
+</div>
+<!-- //banner -->
+
+
+<!-- Main -->
+<!-- Services -->
+	<div class="why-choose-agile">
+		<div class="container" id="carservice">
+			<h2 class="w3l_head ser2">Services</h2>
+			<div class="why-choose-agile-grids-top">
+				<div class="col-md-4 agileits-w3layouts-grid">
+					<div class="wthree_agile_us">
+						<div class="col-xs-9 agile-why-text">
+							<h4>Transmission</h4>
+							
+						</div>
+						<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-truck" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="wthree_agile_us">
+						<div class="col-xs-9 agile-why-text">
+							<h4>Brakes</h4>
+						
+						</div>
+						<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-cog" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="wthree_agile_us">
+						<div class="col-xs-9 agile-why-text">
+							<h4>Tune-up</h4>
+							
+													</div>
+						<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-eye" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+						<div class="wthree_agile_us">
+						<div class="col-xs-9 agile-why-text">
+							<h4>Suspension</h4>
+							
+						</div>
+						<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-truck" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 agileits-w3layouts-grid img">
+					<img src="{% static 'images/abs.jpg' %}" alt=" " class="img-responsive" />
+				</div>
+				
+				<div class="col-md-4 agileits-w3layouts-grid">
+					<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-star" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="col-xs-9 agile-why-text two">
+							<h4>Engine Diagnostics & <br> Repair</h4>
+						
+						</div>
+						
+						<div class="clearfix"> </div>
+					</div>
+					<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-cogs" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="col-xs-9 agile-why-text two">
+							<h4>Battery Replacement</h4>
+							
+						</div>
+						
+						<div class="clearfix"> </div>
+					</div>
+					<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-wrench" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="col-xs-9 agile-why-text two">
+							<h4>Tire Repair & <br> Change Tire on Rim</h4>
+							
+						</div>
+						
+						<div class="clearfix"> </div>
+					</div>
+						<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+							<div class="wthree_features_grid hvr-rectangle-out">
+								<i class="fa fa-star" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="col-xs-9 agile-why-text two">
+							<h4>Safety Inspection</h4>
+							
+						</div>
+						
+						<div class="clearfix"> </div>
+					</div>
+				
+						
+					</div>
+			</div>
+				<div class="clearfix"> </div>
+				
+				<div class="why-choose-agile-grids-top">
+				<div class="col-md-4 agileits-w3layouts-grid">
+				
+				
+				</div>
+			
+				
+				<div class="col-md-4 agileits-w3layouts-grid">
+				
+						
+						<div class="clearfix"> </div>
+					</div>
+			</div>
+		</div>
+	</div>
+	</div>
+<!-- //services -->
+
+<!-- Inspection start-->
+	<div class="about">
+		<div class="container" id="inspection">
+			<h3>inspection services</h3>
+			<h4> Before you buy a new or used vehicle it is prudent to have it examined so as to ascertain that it is in good condition. A mobile mechanic can be called in to assess the engine, interior features and the exterior condition of the vehicle before giving it a clean bill of health. </h4>
+			<br>
+			<hr>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-left">
+						<h4>Hood Components</h4>
+						<p>Hood Release,Hood Prop/Gas Struts</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Engine Components</h4>
+						<p>Valve Cover/Cylinder Heads & Gaskets, Belts, Hoses, Air Filter,Engine Mounts/Block/Idle Speed, Starter and Oil Change & New Filter</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-left">
+						<h4>Transmission Components</h4>
+						<p>Fluid Level, Operation, CV Boots, Brake/Shift Interlock (Automatic)</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Exhaust System</h4>
+						<p>Emissions, Muffler, Pipes & Hangers</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-left">
+						<h4>Battery</h4>
+						<p>Battery Conditions, Amps, Volts</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Cooling System</h4>
+						<p>Coolant Level/Condition/Strength/PH Level and Recovery Systems, Radiator Condition, Cooling Fan Blades</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-left">
+						<h4>Fuel System</h4>
+						<p>Fuel Tank and Lines</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Suspension Components</h4>
+						<p>Shock Absorbers, Struts, Stabilizer Bars, Suspension Mountings</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-left">
+						<h4>Braking System</h4>
+						<p>Break Fluid, Parking Blade, Front Pads Measurement (mm), Rotor Measurement - Front, Rotor Measurement - Rear, Caliper Condition, Drums</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Steering System</h4>
+						<p>Power Steering Fluid/Pump, Rack & Pinion Assembly</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-left">
+						<h4>Steering System</h4>
+						<p>Washer Fluid Level, Wiper Blade Condition</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Seating Area</h4>
+						<p>Safety Belts, Door Trim Panel Condition, Headliner Condition</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-left">
+						<h4>Instruments & Controls</h4>
+						<p>Instrument Panel Gauges, Horn, Lighters/Power Point Outlets, Window/Mirror/ Controls, Door Lock Controls, Steering Wheel Controls, Heating/Ventilation,A/C Output (Temperature Reading),Rear Window Defroster </p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Lights</h4>
+						<p>Headlights (High/Low/Aim), Parking Lights, Hazard Lights, Brake Lights, Turn Signals, Day time Running Lights</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-left">
+						<h4>Air Bag</h4>
+						<p>Readiness/System Condition</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Audio System</h4>
+						<p>Radio/CD/Cassette, Player/Speakers, Antenna</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-left">
+						<h4>Exterior</h4>
+						<p>Windshield & Windows, Body Side Panel Condition, Hood/Door/Decklid /Grille /Bumper Fascia  Conditions</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid about-one">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Tires & Wheels</h4>
+						<p>Road Tire Condition, Wheel Condition, Jack & Wrench Condition, Front/Rear Tires Condition,Tread Depth - Left & Right (mm), Window Etching</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-left">
+						<h4>Luggage Compartment</h4>
+						<p>Luggage Compartment, Luggage Compartment Trim/Light</p>
+					</div>
+					<div class="about-grid-right">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="about-grid-right aliquam">
+						<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+					</div>
+					<div class="about-grid-left non">
+						<h4>Road Tests</h4>
+						<p>Initial Road Test, Final Road Test</p>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- Inspection end-->
+	
+	<!-- Why choose us-->	
+ <div class="con-agile">
+		<div class="container">
+			<h2 class="w3l_head ser2 why_us">Why Choose Us</h2>
+			  <ul>
+                        <li style="list-style-type: none;margin: 0 0 15px;font-size:25px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> We come to you at any location.</li>
+                        <li style="list-style-type: none;margin: 0 0 15px;font-size:25px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Fast Affordable Services, reliable, and professional.</li>
+                        <li style="list-style-type: none;margin: 0 0 15px;font-size:25px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> No waiting in an auto shop. We are a technician service on wheels and ready to serve you.</li>
+                        <li style="list-style-type: none;margin: 0 0 15px;font-size:25px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> We fix all types of vehicles include European and German.</li>
+                    </ul>
+                </div>
+                </div>
+                	<!-- why choose us- end-->
+
+
+<!-- //Main -->
+{% block footer %}
+
+
+<!-- Footer -->
+<div class="footer w3ls">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid fg1">
+					<h4><a href="index.html">GTA Mobile Mechanics</a></h4>
+					<p>We service anywhere in the GTA</p>
+					<a href="/contact">Book Now</a>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>2 Bloor St.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>416-555-5555</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p><a href="mailto:info@example.com">gtamobilemechanics@gmail.com</a></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Keep In Touch With Us</h3>
+					<div class="right-w3l">
+							<ul class="top-links">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="right-w3-2">
+						<ul class="text-w3">
+							<li><a target="_blank" href="https://www.facebook.com/">Facebook</a></li>
+							<li><a target="_blank" href="https://twitter.com/">Twitter</a></li>
+							<li><a <a target="_blank" href="https://google.com/">Google</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="copyrights">
+				<p style="font-size:9px;">&copy; 2019 GTA Mobile Mechanics. All Rights Reserved | Edited by HaniH. Design by W3layouts </p>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+// scroll up 
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    }
+    else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+</script>
+<!-- Footer -->
+{% endblock %} {% endblock %}

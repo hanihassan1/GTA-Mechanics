@@ -1,0 +1,199 @@
+{% extends 'emp_base.html' %} {% load static %} {% block head %}
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static '/css/styles.css'  %}" rel="stylesheet" type="text/css" media="all" /> {% endblock %} {% block menu %}
+
+<title>GTA Mobile Mechanics - Employee Dashboard</title>
+<!--side menu end-->
+<div class="main-panel" id="main-panel">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <div class="navbar-toggle">
+          <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+        </div>
+        <a class="navbar-brand" href="#pablo">Dashboard</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+       <ul class="navbar-nav">
+                    <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">
+                  
+                  <p>
+                    <span class="d-lg-none d-md-block">Home</span>
+                  </p>
+                </a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">
+                 
+                  <p>
+                    <span class="d-lg-none d-md-block">Logout</span>
+                  </p>
+                </a>
+              </li>
+
+               
+                </ul>
+          </div>
+            <button class="open-button collapse navbar-collapse"><a href="{% url 'index' %}">Home</button></a>
+            <button class="open-button collapse navbar-collapse"><a href="{% url 'services' %}">Services</button></a>
+            <button class="open-button3 collapse navbar-collapse"><a href="{% url 'logout' %}">Logout</button></a>
+            
+
+    </div>
+  </nav>
+
+  <!--side menu Start-->
+  <div class="sidebar" data-color="orange">
+
+    <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+    <div class="logo">
+
+      <a href="#" class="simple-text logo-mini">
+          GTA
+        </a>
+      <a href="#" class="simple-text logo-normal">
+          Mobile Mechanics
+        </a>
+    </div>
+    <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <ul class="nav">
+        {% for item in employee %}
+        <p>Name: {{item.username}}</p>
+        {% endfor%}
+        <li class="active ">
+          <a href="{% url 'dashboard' %}">
+              <i class="fas fa-cube"></i>
+              <p>Dashboard</p>
+            </a>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  {% endblock %} {% block content %}
+
+  <div class="panel-header panel-header-sm">
+  </div>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title"> Work Orders</h4>
+          </div>
+          <div class="card-body orders-edit">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                   <th>View
+                  </th>
+                  <th>Status
+                  </th>
+                  <th>
+                    Client Name
+                  </th>
+                  <th>
+                    Contact #
+                  </th>
+
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Time
+                  </th>
+                  <th>
+                    Address
+                  </th>
+                  <th>
+                    Service
+                  </th>
+                  <th>
+                   Upload Images
+                  </th>
+
+
+
+                </thead>
+                <tbody>
+ {% for item in booking %}
+                  <tr>
+                    <td>
+                      
+                      <a href="/booking_view/{{item.id}}"><i class="far fa-eye"></i> </a>
+                     
+
+                    </td>
+
+                    <td>
+                      {% if item.is_completed %}
+                      <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Completed</button> 
+                      {% else %}
+                      <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="booking_id" value="{{item.id}}" />
+                        <input type="hidden" name="f_type" value="complete" />
+                        <input type="submit" class="btn btn-primary" value="Complete"></input>
+                      </form>
+                      {% endif %}
+                    </td>
+
+                    <td>
+                      {{item.client.username}}
+                    </td>
+
+                    <td>
+                      {{item.client.phone_number}}
+                    </td>
+
+                    <td>
+                      {{item.date}}
+                    </td>
+                    <td>
+                      {{item.time}}
+                    </td>
+                    <td>
+                      {{item.address}}
+                    </td>
+                    <td>
+                      {{ item.services.name_of_service}}
+                    </td>
+
+
+                    <td>
+                      <a href="{% url 'upload_image' item.id %}"> <button type="button">Upload</button></a>
+                    </td>
+                  </tr>
+
+                  {% endfor%}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {% endblock %} {% block footer %} {% endblock %}

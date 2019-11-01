@@ -1,0 +1,466 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+
+<script type="application/x-javascript">
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+	function hideURLbar() { window.scrollTo(0, 1); }
+</script>
+<!--// Meta tag Keywords -->
+
+<link href=" {% static '/css/style.css'  %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Style-CSS -->
+<!-- banner -->
+{% endblock %} {% block heading%}
+
+	<div class="banner wthree">
+		
+		<div class="container">
+			
+			<div class="banner_top">
+				
+				<div class="logo wow fadeInLeft animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+				<h1><a href="{% url 'index' %}"><span>GTA</span> Mobile Mechanics</a></h1>
+				</div>
+				
+				<!----navigation-->
+				
+				<div class="banner_top_right wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+					<nav class="navbar navbar-default">
+			
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+{% endblock %} {% block menu %}
+<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+	<ul class="nav navbar-nav cl-effect-14">
+		<li><a href="{% url 'index' %}" class="active">Home</a></li>
+		<li><a href="{% url 'services' %}">Services</a></li>
+		<li><a href="{% url 'contact' %}">Contact Us</a></li>
+		{% if user.is_authenticated %}
+		<li><a href="{% url 'logout' %}">Logout</a></li>
+		{% if user.is_customer %}
+		<li><a href="{% url 'user_profile' %}">Profile</a></li>
+		{% else %}
+		<li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+		{%endif%}
+		{% else %}
+		<li><a href="{% url 'signup_login' %}">Register/Log In</a></li>
+		{%endif%}
+		
+		
+	</ul>
+</div>
+<!-- /.navbar-collapse -->
+
+{% endblock %} {% block content %}
+</div>
+<div class="clearfix"> </div>
+</div>
+<!-- banner -->
+<!--Slider-->
+
+<div class="callbacks_container">
+	<ul class="rslides" id="slider3">
+		<li>
+
+			<div class="slider-info">
+				<h3>Fast cars are my <span>only vice.</span> </h3>
+			</div>
+		</li>
+		<li>
+			<div class="slider-info">
+				<h3>Cars bring me sheer <span>joy.</span> </h3>
+			</div>
+		</li>
+		<li>
+
+			<div class="slider-info">
+				<h3>Fast cars are my <span>only vice.</span> </h3>
+			</div>
+		</li>
+
+
+	</ul>
+
+	<div class="clearfix"></div>
+</div>
+<!--//Slider-->
+</div>
+<div class="thim-click-to-bottom">
+	<a href="#about" class="scroll">
+					<i class="fa fa-long-arrow-down text-center" aria-hidden="true"> <br>About</i>
+				</a>
+</div>
+</div>
+<!-- //banner -->
+
+<!-- Main -->
+<!-- About -->
+<div class="banner-bottom agile" id="about">
+	<div class="container">
+		<h2 class="tittle-one wow fadeInDown">About Us</h2>
+		<div class="bottom-grids agileinfo">
+			<div class="col-md-6 bottom-grid fadeInLeft animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+				<img src="{% static '/images/ab1.jpg' %}" alt="">
+			</div>
+			<div class="col-md-6 bottom-grid grid-one wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+				<h4>The Owners</h4>
+				<p>Owners Farah and Abdul have a combined 8 years in the automotive repair industry. These brothers decided to open up a mobile mechanic business in the GTA, and thus GTA Mobile Mechanics was born. They’re goal is to be the best, most honest, affordable
+					and reliable independent mobile mechanics in the area. In order to ensure that you receive only the best, we follow a strict code of ethics designed with the customer in mind.</p>
+				<p></p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //About -->
+
+<!--count-->
+<div class="count-agileits">
+	<canvas id="myCanvas"></canvas>
+	<div class="count-grids">
+		<div class="count-bgcolor-w3ls">
+			<div class="col-md-4 count-grid">
+				<i class="fa fa-users" aria-hidden="true"></i>
+				<div class="count hvr-bounce-to-bottom">
+					<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='2046' data-delay='.5' data-increment="100">2046+</div>
+					<span></span>
+					<h5>Happy Customers</h5>
+				</div>
+			</div>
+			<div class="col-md-4 count-grid">
+				<i class="fa fa-wrench" aria-hidden="true"></i>
+				<div class="count hvr-bounce-to-bottom">
+					<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='768' data-delay='.5' data-increment="100">768</div>
+					<span></span>
+					<h5>Inspections</h5>
+				</div>
+			</div>
+			<div class="col-md-4 count-grid">
+				<i class="fa fa-cog" aria-hidden="true"></i>
+				<div class="count hvr-bounce-to-bottom">
+					<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='10762' data-delay='.5' data-increment="100">102762</div>
+					<span></span>
+					<h5>Services</h5>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--count-->
+
+<!-- Services -->
+<div class="why-choose-agile">
+	<div class="container">
+		<h2 class="w3l_head ser2">Our Services</h2>
+		<div class="why-choose-agile-grids-top">
+			<div class="col-md-4 agileits-w3layouts-grid">
+				<div class="wthree_agile_us">
+					<div class="col-xs-9 agile-why-text">
+						<h4>Transmission</h4>
+
+					</div>
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-truck" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_agile_us">
+					<div class="col-xs-9 agile-why-text">
+						<h4>Brakes</h4>
+
+					</div>
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-cog" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_agile_us">
+					<div class="col-xs-9 agile-why-text">
+						<h4>Tune-up</h4>
+
+					</div>
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-eye" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_agile_us">
+					<div class="col-xs-9 agile-why-text">
+						<h4>Suspension</h4>
+
+					</div>
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-truck" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-4 agileits-w3layouts-grid img">
+				<img src="{% static 'images/abs.jpg' %}" alt=" " class="img-responsive" />
+			</div>
+
+			<div class="col-md-4 agileits-w3layouts-grid">
+				<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-star" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-9 agile-why-text two">
+						<h4>Engine Diagnostics & <br> Repair</h4>
+
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-cogs" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-9 agile-why-text two">
+						<h4>Battery Replacement</h4>
+
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-wrench" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-9 agile-why-text two">
+						<h4>Tire Repair & <br> Change Tire on Rim</h4>
+
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_agile_us">
+					<div class="col-xs-3 agile-why-text">
+						<div class="wthree_features_grid hvr-rectangle-out">
+							<i class="fa fa-star" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-9 agile-why-text two">
+						<h4>Safety Inspection</h4>
+
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+
+
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+
+		<div class="why-choose-agile-grids-top">
+			<div class="col-md-4 agileits-w3layouts-grid">
+
+
+			</div>
+
+
+			<div class="col-md-4 agileits-w3layouts-grid">
+
+
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //services -->
+
+
+
+<!-- //Main -->
+{% block footer %}
+
+
+<!-- Footer -->
+<div class="footer w3ls">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid fg1">
+					<h4><a href="index.html">GTA Mobile Mechanics</a></h4>
+					<p>We service anywhere in the GTA</p>
+					<a href="/contact">Book Now</a>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>2 Bloor St.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>416-555-5555</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p><a href="mailto:info@example.com">gtamobilemechanics@gmail.com</a></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Keep In Touch With Us</h3>
+					<div class="right-w3l">
+					<ul class="top-links">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="right-w3-2">
+						<ul class="text-w3">
+							<li><a target="_blank" href="https://www.facebook.com/">Facebook</a></li>
+							<li><a target="_blank" href="https://twitter.com/">Twitter</a></li>
+							<li><a <a target="_blank" href="https://google.com/">Google</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="copyrights">
+				<p style="font-size:9px;">&copy; 2019 GTA Mobile Mechanics. All Rights Reserved | Edited by HaniH. Design by W3layouts </p>
+				<!--<p><a href="{% url 'user_employee' %}" class="active">Employee</a></p><!--Trigger-->
+
+
+<!--employee sign in-->
+
+<div class="container"> 
+    
+    <br>
+    <center>
+   
+  <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".log-sign">Employee Sign In</button>
+  </center>
+  <br>
+    
+
+  </div>
+
+<!-- Modal log in employee -->
+<div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
+             
+              
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+       
+        <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal">
+            <fieldset>
+            	
+            	
+           
+            <!-- Text input-->
+              
+               <div class="group">
+               	    <label class="label" for="email" style="color:black;">Email address</label>
+<input required="" class="input" name="email" type="text"><span class="highlight"></span><span class="bar"></span></div>
+
+              
+              
+            <!-- Password input-->
+            <div class="group">
+            	<label class="label" for="password" style="color:black;">Password</label>
+<input required="" class="input" name="password" type="password"><span class="highlight"></span><span class="bar"></span>
+    
+    </div>
+
+            
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin" name="signin" class="btn btn-primary btn-block">Log In</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+          
+          
+        
+    </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+   
+
+          
+          
+          <script>
+          	$(window, document, undefined).ready(function() {
+
+  $('.input').blur(function() {
+    var $this = $(this);
+    if ($this.val())
+      $this.addClass('used');
+    else
+      $this.removeClass('used');
+  });
+  
+  });
+
+
+$('#tab1').on('click' , function(){
+    $('#tab1').addClass('login-shadow');
+   $('#tab2').removeClass('signup-shadow');
+});
+
+$('#tab2').on('click' , function(){
+    $('#tab2').addClass('signup-shadow');
+   $('#tab1').removeClass('login-shadow');
+
+
+});
+
+        </script>
+{% endblock %} {% endblock %}
